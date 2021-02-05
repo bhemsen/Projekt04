@@ -1,8 +1,11 @@
 from netaddr import *
 from ip4to6 import *
 from ip6to4 import *
+from Inputhandler.inputHandler import *
 
-print(IPAddress('192.0.2.15').ipv4())
+converter = IPv4ToIPv6('192.168.0.255')
+converter.convert()
 
-converter = IPv4ToIPv6('192.168.0.1')
-converter.printIP()
+converter2 = IPv6ToIPv4(converter.convert())
+converter2.convert()
+
