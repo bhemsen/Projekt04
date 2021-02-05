@@ -1,7 +1,9 @@
 from netaddr import *
 from ip4to6 import *
 from ip6to4 import *
-from Inputhandler.inputHandler import *
+from inputhandler.inputhandler import Inputhandler
+
+Inputhandler.handleIPv4(Inputhandler)
 
 converter = IPv4ToIPv6('192.168.0.255')
 converter.convert()
