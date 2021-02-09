@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-
-=======
+from inputhandler.inputhandler import Inputhandler
 from _MySQL.database import Database
 import mysql.connector
 
@@ -8,4 +6,7 @@ import mysql.connector
 db = Database('localhost','webadmin','password','projekt04')
 
 db.getAbteilungen()
->>>>>>> develop
+
+inputhandler = Inputhandler()
+
+inputhandler.handleNewNetwork()
