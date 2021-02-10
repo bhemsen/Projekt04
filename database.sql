@@ -11,3 +11,5 @@ ALTER TABLE `netze` ADD FOREIGN KEY (`abteilung`) REFERENCES `abteilungen`(`ID`)
 ALTER TABLE `computer` ADD FOREIGN KEY (`abteilung`) REFERENCES `abteilungen`(`ID`) ON DELETE RESTRICT ON UPDATE CASCADE;
 ALTER TABLE `adresszuordnung` ADD FOREIGN KEY (`pc`) REFERENCES `computer`(`ID`) ON DELETE RESTRICT ON UPDATE CASCADE;
 ALTER TABLE `adresszuordnung` ADD FOREIGN KEY (`netz`) REFERENCES `netze`(`ID`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `netze` ADD UNIQUE( `netzadresse`, `abteilung`);
+ALTER TABLE `adresszuordnung` ADD UNIQUE( `hostadresse`, `pc`);
