@@ -1,10 +1,18 @@
 from netaddr import *
-from ip4to6 import *
-from ip6to4 import *
-from inputhandler.inputhandler import Inputhandler
+from inputhandler.Inputhandler import Inputhandler
 
 
 class Converter:
+
+    def convertIPv4inIPv6(ipv4):
+        ipV6 = IPAddress(ipv4).ipv6()
+        print (ipV6)
+        return ipV6 
+
+    def convertIPv6inIPv4(ipv6):
+        ipV4 = IPAddress(ipv6).ipv4()
+        print (ipV4)
+        return ipV4 
    
     def convertV4ToBinary(ipv4):
         return IPAddress(ipv4).bits()
@@ -18,6 +26,11 @@ class Converter:
     convertSubnetmaskToBinary('255.255.255.0')
 
 
+    #  takes a Dictionary as attribute from the inputhandler and converts it into an IPNetwork Objekt and returns it
+    def convertToNetwork(self, data):
+        ipNetwork = IPNetwork(data['networkaddress'])
+        ipNetwork.netmask = data['subnetmask']
+        return ipNetwork
 
 # inputV4 = Inputhandler.handleIPv4(Inputhandler)
 
