@@ -1,5 +1,5 @@
 from netaddr import * 
-from inputhandler.inputhandler import Inputhandler
+from inputhandler.Inputhandler import Inputhandler
 from IPConverter.ConvertInputToNetwork import ConvertInputToNetwork
  
 class Network:

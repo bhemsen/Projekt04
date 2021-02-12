@@ -1,5 +1,5 @@
 from inputhandler.Inputhandler import Inputhandler
-from _MySQL.database import Database
+from _MySQL.Database import Database
 from IPConverter.Converter import *
 from Networks.Network import Network
 from Outputhandler.Outputhandler import Outputhandler
