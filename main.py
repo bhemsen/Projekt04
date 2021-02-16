@@ -16,20 +16,23 @@ db = Database('localhost','webadmin','password','projekt04')
 inputhandler = Inputhandler()
 converter = Converter()
 
-userInput = inputhandler.handleNewNetwork()
+# userInput = inputhandler.handleNewNetwork()
 
-# Convert the Inputstring into an IPNetwork Object
-ipNetwork = converter.convertToNetwork(userInput)
-networks = Network().createSubnets(userInput, ipNetwork)
+# # Convert the Inputstring into an IPNetwork Object
+# ipNetwork = converter.convertToNetwork(userInput)
+# networks = Network().createSubnets(userInput, ipNetwork)
 
-# for every created network connect IP to PC
-keys = networks.keys()
+# # for every created network connect IP to PC
+# keys = networks.keys()
 
-for key in keys:
-    abteilung = input('Abteilung: ')
-    fileName = db.addNetworks(key,abteilung)
-    print(key)
-    networkID = db.getNetworkID(IPNetwork(key).network,abteilung)
-    inputhandler.connectIPtoPC(networks[key],networkID, fileName)
+# for key in keys:
+#     abteilung = input('Abteilung: ')
+#     fileName = db.addNetworks(key,abteilung)
+#     print(key)
+#     networkID = db.getNetworkID(IPNetwork(key).network,abteilung)
+#     inputhandler.connectIPtoPC(networks[key],networkID, fileName)
+
+
+
 
 
