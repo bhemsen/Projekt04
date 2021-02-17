@@ -55,7 +55,7 @@ class IPMaster9000:
         
         # Create A Canvas
         my_canvas = Canvas(self.f2parent)
-        my_canvas.pack(side=RIGHT, fill=BOTH, expand=1)
+        my_canvas.pack(side=LEFT, fill=BOTH, expand=1)
 
         # Add A Scrollbar To The Canvas
         my_scrollbar = ttk.Scrollbar(self.f2parent, orient=VERTICAL, command=my_canvas.yview)
