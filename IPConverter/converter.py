@@ -5,12 +5,10 @@ class Converter:
 
     def convertIPv4inIPv6(self, ipv4):
         ipV6 = IPAddress(ipv4).ipv6()
-        print (ipV6)
         return ipV6 
 
     def convertIPv6inIPv4(self, ipv6):
         ipV4 = IPAddress(ipv6).ipv4()
-        print (ipV4)
         return ipV4 
    
     def convertV4ToBinary(self, ipv4):
