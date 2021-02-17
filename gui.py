@@ -48,12 +48,14 @@ class IPMaster9000:
         horizontalPane = ttk.Panedwindow(frame1, orient=HORIZONTAL)
         horizontalPane.pack(fill=BOTH, expand=True)
         self.f1 = ttk.Labelframe(horizontalPane, text='Input', width=100, height=100)
+
+        # ------------------------------------------PanedWindwo2-----------------------------------------------------------
         self.f2parent = ttk.Labelframe(horizontalPane, text='Abteilung', width=400, height=300)
 
         
         # Create A Canvas
         my_canvas = Canvas(self.f2parent)
-        my_canvas.pack(side=LEFT, fill=BOTH, expand=1)
+        my_canvas.pack(side=RIGHT, fill=BOTH, expand=1)
 
         # Add A Scrollbar To The Canvas
         my_scrollbar = ttk.Scrollbar(self.f2parent, orient=VERTICAL, command=my_canvas.yview)
@@ -71,7 +73,7 @@ class IPMaster9000:
 
 
 
-        #-------------------------------------------PanedWindo-------------------
+        #-------------------------------------------PanedWindow3-------------------
 
         self.f3parent = ttk.Labelframe(horizontalPane, text='IP-Zuordnung', width=400, height=300)
 
