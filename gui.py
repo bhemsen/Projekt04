@@ -232,6 +232,9 @@ class IPMaster9000:
                 self.data['name']= filedialog.asksaveasfilename()
                 self.outputhandler.writeToFile(self.data)
 
+        else:
+            self.outputhandler.writeToFile(self.data)
+
         for i in range(1,len(listOfIPs)-1):
             ip = str(listOfIPs[i])
             self.ipAssignment[i] = StringVar()
