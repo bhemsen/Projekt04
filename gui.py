@@ -45,15 +45,17 @@ class IPMaster9000:
         # Frame 1: Calculating Subnets
 # -----------------------------------------------------------------------------------------------------------------------------------
         # creating panels
-        horizontalPane = ttk.Panedwindow(frame1, orient=HORIZONTAL)
-        horizontalPane.pack(fill=BOTH, expand=True)
-        self.f1 = ttk.Labelframe(horizontalPane, text='Input', width=100, height=100)
-        self.f2parent = ttk.Labelframe(horizontalPane, text='Abteilung', width=400, height=300)
+        self.horizontalPane = ttk.Panedwindow(frame1, orient=HORIZONTAL)
+        self.horizontalPane.pack(fill=BOTH, expand=True)
+        self.f1 = ttk.Labelframe(self.horizontalPane, text='Input', width=100, height=100)
+
+
+        self.f2parent = ttk.Labelframe(self.horizontalPane, text='Abteilung', width=400, height=300)
 
         
         # Create A Canvas
-        my_canvas = Canvas(self.f2parent)
-        my_canvas.pack(side=LEFT, fill=BOTH, expand=1)
+        my_canvas = Canvas(self.f2parent,bd=0, highlightthickness=0, relief='ridge')
+        my_canvas.pack(side=LEFT, fill=BOTH, expand=True)
 
         # Add A Scrollbar To The Canvas
         my_scrollbar = ttk.Scrollbar(self.f2parent, orient=VERTICAL, command=my_canvas.yview)
@@ -64,7 +66,7 @@ class IPMaster9000:
         my_canvas.bind('<Configure>', lambda e: my_canvas.configure(scrollregion = my_canvas.bbox("all")))
 
         # Create ANOTHER Frame INSIDE the Canvas
-        self.f2 = Frame(my_canvas)
+        self.f2 = Frame(my_canvas, border=0, pady=2, padx=2)
 
         # Add that New frame To a Window In The Canvas
         my_canvas.create_window((0,0), window=self.f2, anchor="nw")
@@ -73,7 +75,7 @@ class IPMaster9000:
 
         #-------------------------------------------PanedWindo-------------------
 
-        self.f3parent = ttk.Labelframe(horizontalPane, text='IP-Zuordnung', width=400, height=300)
+        self.f3parent = ttk.Labelframe(self.horizontalPane, text='IP-Zuordnung', width=400, height=300)
 
         
         # Create A Canvas
@@ -95,9 +97,9 @@ class IPMaster9000:
         my_canvas.create_window((0,0), window=self.f3, anchor="nw")
 
 
-        horizontalPane.add(self.f1)
-        horizontalPane.add(self.f2parent)
-        horizontalPane.add(self.f3parent)
+        self.horizontalPane.add(self.f1)
+        self.horizontalPane.add(self.f2parent)
+        self.horizontalPane.add(self.f3parent)
 
         # Setting the Variables#
         self.inputNetwork = StringVar()
@@ -164,8 +166,8 @@ class IPMaster9000:
         ttk.Label(frame2, text='IPv4-binär: ').grid(column=0, row=8, sticky=W)
 
 
-        for child in frame1.winfo_children(): 
-            child.grid_configure(padx=8, pady=8)
+        # for child in frame1.winfo_children(): 
+        #     child.grid_configure(padx=8, pady=8)
 
         for child in frame2.winfo_children(): 
             child.grid_configure(padx=2, pady=2)
@@ -210,7 +212,7 @@ class IPMaster9000:
                 self.inputAbteilungen[i] = ttk.Entry(self.f2, textvariable=self.data[i])
                 self.inputAbteilungen[i].grid(column=2, row=i, sticky=EW)
             
-                ttk.Label(self.f2, text=key).grid(column=0, row=i, sticky=W)
+                ttk.Label(self.f2, text=key).grid(column=0, row=i, sticky=W, padx=3, pady=3)
                 ttk.Label(self.f2, text='Abteilung: ').grid(column=1, row=i, sticky=W)
                 ttk.Button(self.f2, text='Go', command=partial(self.displayIPAssignment, self.inputAbteilungen[i], key, networks[key])).grid(column=3, row=i, sticky=NSEW)
 
