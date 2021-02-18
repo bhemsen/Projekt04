@@ -3,7 +3,7 @@
 #
 # IP-Adresse     PC
 
-10.0.0.0    Netzadresse
-10.0.0.7   Broadcastadresse
+192.168.0.0    Netzadresse
+192.168.0.7   Broadcastadresse
 255.255.255.248    Subnetsmaske
 

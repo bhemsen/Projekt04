@@ -292,7 +292,7 @@ class IPMaster9000:
         for x in k:
             if(assignments[x].get() != ''):
                 if(assignments[x].get() in l):
-                    messagebox.showinfo(message='Überprüfe deine Eingabe!\nJeder IP kann nur einem PC zugeordnet werden')
+                    messagebox.showinfo(message='Überprüfe deine Eingabe!\nJedem PC kann nur eine IP zugeordnet werden')
                     return
                 
             l.append(assignments[x].get())
