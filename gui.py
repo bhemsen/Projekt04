@@ -140,6 +140,13 @@ class IPMaster9000:
         self.outputIPv6_binär2 = StringVar()
         inputIPv6_entry = ttk.Entry(frame2, textvariable=self.inputIPv6)
         inputIPv6_entry.grid(column=1, row=5, sticky=NSEW)
+
+        # Subnetzmaske
+        self.snm = StringVar()
+        self.outputSuffix = StringVar()
+        self.outputSnm_binär = StringVar()
+        snm_entry = ttk.Entry(frame2, textvariable=self.snm)
+        snm_entry.grid(column=1, row=9, sticky=NSEW)
         
         # Display Labels and Buttons
         ttk.Label(frame2, text='Eingabe IPv4: ').grid(column=0, row=1, sticky=W)
@@ -149,7 +156,7 @@ class IPMaster9000:
         ttk.Label(frame2, text='IPv4-binär: ').grid(column=0, row=2, sticky=W)
 
         Entry(frame2, textvariable=self.outputIPv6, state='readonly', borderwidth=0, width=128).grid(column=1, row=3, sticky=EW)
-        ttk.Label(frame2, text='IPv6-Adresse: ').grid(column=0, row=3, sticky=E)
+        ttk.Label(frame2, text='IPv6-Adresse: ').grid(column=0, row=3, sticky=W)
         
         Entry(frame2, textvariable=self.outputIPv6_binär, state='readonly', borderwidth=0, width=140).grid(column=1, row=4, sticky=EW)
         ttk.Label(frame2, text='IPv6-binär: ').grid(column=0, row=4, sticky=W)
@@ -165,6 +172,16 @@ class IPMaster9000:
 
         Entry(frame2, textvariable=self.outputIPv4_binär2, state='readonly', borderwidth=0, width=140).grid(column=1, row=8, sticky=EW)
         ttk.Label(frame2, text='IPv4-binär: ').grid(column=0, row=8, sticky=W)
+        
+        ttk.Label(frame2, text='Eingabe Subnetzmaske: ').grid(column=0, row=9, sticky=W)
+        ttk.Button(frame2, text='umwandeln', command=self.convertSubnetzmaske).grid(column=2, row=9, sticky=NSEW)
+        
+        Entry(frame2, textvariable=self.outputSnm_binär, state='readonly', borderwidth=0, width=140).grid(column=1, row=10, sticky=EW)
+        ttk.Label(frame2, text='Subnetzmaske-binär: ').grid(column=0, row=10, sticky=W)
+        
+        Entry(frame2, textvariable=self.outputSuffix, state='readonly', borderwidth=0, width=140).grid(column=1, row=11, sticky=EW)
+        ttk.Label(frame2, text='Suffix: ').grid(column=0, row=11, sticky=W)
+
 
 
         # for child in frame1.winfo_children(): 
@@ -311,6 +328,18 @@ class IPMaster9000:
             self.outputIPv6_binär2.set(self.converter.convertV6ToBinary(ip))
             self.outputIPv4.set(convertedIP)
             self.outputIPv4_binär2.set(self.converter.convertV4ToBinary(convertedIP))
+        except ValueError:
+            self.outputIPv6.set('xxx')
+
+    def convertSubnetzmaske(self, *args):
+        try:
+            value = str(self.snm.get())
+            netmask = self.inputhandler.handleNetmask(value)
+            binär = self.converter.convertSubnetmaskToBinary(netmask)
+            suffix = self.converter.convertNetmaskInSuffix(netmask)
+
+            self.outputSnm_binär.set(binär)
+            self.outputSuffix.set(suffix)
         except ValueError:
             self.outputIPv6.set('xxx')
 

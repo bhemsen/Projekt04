@@ -10,6 +10,11 @@ class Converter:
     def convertIPv6inIPv4(self, ipv6):
         ipV4 = IPAddress(ipv6).ipv4()
         return ipV4 
+
+    def convertNetmaskInSuffix(self, netmask):
+        ntw = IPNetwork('0.0.0.0')
+        ntw.netmask = str(netmask)
+        return ntw.prefixlen 
    
     def convertV4ToBinary(self, ipv4):
         return IPAddress(ipv4).bits()
@@ -18,7 +23,7 @@ class Converter:
         return IPAddress(ipv6).bits()
 
     def convertSubnetmaskToBinary(self, subnetmask):
-        return IPAddress(subnetmask).bits()
+        return IPAddress(str(subnetmask)).bits()
 
 
 

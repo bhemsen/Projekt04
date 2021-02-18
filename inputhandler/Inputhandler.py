@@ -5,10 +5,13 @@ class Inputhandler:
 
     def handleIPv4(self, inputString):
         return IPAddress(inputString).ipv4()
-
-    
+ 
     def handleIPv6(self, inputString):
         return IPAddress(inputString).ipv6()
+
+    def handleNetmask(self, inputString):
+        nm = IPNetwork('0.0.0.0').netmask = inputString
+        return nm
 
 
     def convertHostCountToSuffix(self, hostCount):
