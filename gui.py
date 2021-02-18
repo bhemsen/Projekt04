@@ -50,6 +50,7 @@ class IPMaster9000:
         self.f1 = ttk.Labelframe(self.horizontalPane, text='Input', width=100, height=100)
 
 
+#-------------------------------------------PanedWindow2-----------------------------------------------------------------------------        
         self.f2parent = ttk.Labelframe(self.horizontalPane, text='Abteilung', width=400, height=300)
 
         
@@ -73,13 +74,13 @@ class IPMaster9000:
 
 
 
-        #-------------------------------------------PanedWindo-------------------
+        #-------------------------------------------PanedWindow3-------------------
 
         self.f3parent = ttk.Labelframe(self.horizontalPane, text='IP-Zuordnung', width=400, height=300)
 
         
         # Create A Canvas
-        my_canvas = Canvas(self.f3parent)
+        my_canvas = Canvas(self.f3parent,bd=0, highlightthickness=0, relief='ridge')
         my_canvas.pack(side=LEFT, fill=BOTH, expand=1)
 
         # Add A Scrollbar To The Canvas
@@ -229,10 +230,10 @@ class IPMaster9000:
         self.value = varName.get()
         ip = IPNetwork(network)
         self.data['name'] = 'Abteilung_'+self.value
-        self.data['content'] = '#\n# IP-Adresszuordung für das Netz '+ self.value+'\n#\n# IP-Adresse     PC\n\n' +str(ip.network) + '    Netzadresse\n' + str(ip.broadcast) + '   Broadcastadresse\n\n'
+        self.data['content'] = '#\n# IP-Adresszuordung für das Netz '+ self.value+'\n#\n# IP-Adresse     PC\n\n' +str(ip.network) + '    Netzadresse\n' + str(ip.broadcast) + '   Broadcastadresse\n'+str(ip.netmask)+ '    Subnetsmaske\n\n'
         self.ipAssignment = {}
         self.pcs = {}
-               
+
         if(os.path.exists(self.data['name'])):
             overwrite = messagebox.askyesno(message='Are you sure you want to overwrite the file??',icon='question', title='Overwrite File')
             if(overwrite):
@@ -244,14 +245,25 @@ class IPMaster9000:
         else:
             self.outputhandler.writeToFile(self.data)
 
+        
+        ttk.Label(self.f3, text=ip.network).grid(column=0, row=0, sticky=W)
+        ttk.Label(self.f3, text='Netzwerkadresse').grid(column=1, row=0, sticky=W, padx=5)
+
+        ttk.Label(self.f3, text=ip.broadcast).grid(column=0, row=1, sticky=W)
+        ttk.Label(self.f3, text='Broadcastadresse').grid(column=1, row=1, sticky=W, padx=5)
+
+        ttk.Label(self.f3, text=ip.netmask).grid(column=0, row=2, sticky=W)
+        ttk.Label(self.f3, text='Subnetzmaske').grid(column=1, row=2, sticky=W, padx=5)
+
+
         for i in range(1,len(listOfIPs)-1):
             ip = str(listOfIPs[i])
             self.ipAssignment[i] = StringVar()
 
             self.pcs[ip] = ttk.Entry(self.f3, textvariable=self.ipAssignment[i])
-            self.pcs[ip].grid(column=1, row=i, sticky=EW)
+            self.pcs[ip].grid(column=1, row=(i+3), sticky=EW, padx=5)
 
-            ttk.Label(self.f3, text=ip).grid(column=0, row=i, sticky=W)
+            ttk.Label(self.f3, text=ip).grid(column=0, row=(i+3), sticky=W)
 
         ttk.Button(self.f3, text='speichern', command=partial(self.saveIPs, self.pcs)).grid(column=2, row=1, sticky=NSEW)
 
