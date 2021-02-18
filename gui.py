@@ -249,6 +249,16 @@ class IPMaster9000:
 
     def saveIPs(self, assignments):
         k = assignments.keys()
+        # validation
+        l = []
+        for x in k:
+            if(assignments[x].get() != ''):
+                if(assignments[x].get() in l):
+                    messagebox.showinfo(message='Überprüfe deine Eingabe!\nJeder IP kann nur einem PC zugeordnet werden')
+                    return
+                
+            l.append(assignments[x].get())
+        
         for x in k:
             self.data['content'] = x +"    "+ assignments[x].get()+'\n'
             self.outputhandler.appendToFile(self.data)
