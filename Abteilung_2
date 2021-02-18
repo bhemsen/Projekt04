@@ -1,0 +1,8 @@
+#
+# IP-Adresszuordung für das Netz 2
+#
+# IP-Adresse     PC
+
+10.0.0.0    Netzadresse
+10.0.0.7   Broadcastadresse
+

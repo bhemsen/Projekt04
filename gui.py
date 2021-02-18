@@ -196,6 +196,10 @@ class IPMaster9000:
 
     def displaySubnets(self, networks):
         try:
+            for widget in self.f2.winfo_children():
+                widget.destroy()
+            self.f2.pack_forget()
+
             # for every created network connect IP to PC
             keys = networks.keys()
             self.data = {}
@@ -217,6 +221,9 @@ class IPMaster9000:
 
 
     def displayIPAssignment(self, varName, network, listOfIPs):
+        for widget in self.f3.winfo_children():
+            widget.destroy()
+        self.f3.pack_forget()
         self.value = varName.get()
         ip = IPNetwork(network)
         self.data['name'] = 'Abteilung_'+self.value
