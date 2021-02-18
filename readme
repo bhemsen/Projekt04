@@ -1,1 +1,35 @@
+Dieses Projekt ist mit Python umgesetzt. Alle benötigten packages sind in einer virtuellen environment abgelegt. 
+Somit müssen keine zusätzlichen, globalen Installationen vorgenommen werden. 
+Entwickelt wurde mit der Version 3.9.0
+Das "Frontend" ist Tkinter gebaut.
+Das Backend mit mit netaddr
+
+Der Projektfortschritt lässt sich im Trello-Board(https://trello.com/b/6uTUuHsF/projekt04) und über die Commits in Github nachvollziehen.
+Es wurde versucht, den Code selbsterklärend zu schreiben und ggf. mit Kommentaren ergänzt
+
+Der Programmstil ist objektorientiert. Die Software ist im Klassen unterteilt, die jeweils für einen Bereich der Software verantwortlich sind. 
+
+So bekommt man dieses Projekt:
+
+1. Dieses Repository clonen
+2. In einem Editor mit Terminal öffnen. (z.B. VS Code)
+3. Im Terminal des Editors in den Projektordner wechseln, falls es nicht bereits der Ordner ist
+4. Auf Windows diesen Command ausführen {code} venv\Scripts\activate {/code}
+5. Im Terminal sollte jetzt (venv) vor der Eingabe stehen
+6. Mit {code} python main.py {/code} starten
+Als alternative wird eine .exe zur Verfügung gestellt.
+
+Im wesentlichen gibt es zur Zeit 2 Funktionen:
+
+Im ersten "Tab" können Subnetze berechnet werden. 
+Dazu die Eingabefelder ausfüllen und mit dem Button bestätigen. Die Subnetze werden dann in der Mittleren Box angezeit.
+Hier kann einem Netz dann eine Abteilung zu geordnet werden. Durch die Zuordnung gibt es in der Rechten Box die Möglichkeit, den IP-Adressen Computern zuzuordnen
+Die Zuordnung wird in einer Datei im Projektordner gespeichert, die angelegt wird, sobald das Netz einer Abteilung zugeordnet wird. 
+Ist bereits eine Datei für die ausgewählte Abteilung vorhanden, kann entschieden werden, diese zu überschreiben, oder eine andere Datei anzulegen(PopUp).
+
+Im Code ist bereits eine Datenbankklasse und eine SQL-Datei angelegt. 
+Die benötigten Methoden zur Übermittlung der Daten sind ebenfalls schon implementiert, werden aber noch nicht genutzt
+
+Im zweiten "Tab" können IPv4-Adressen in IPv6 Adressen umgewandelt werden. Die Dartellung erfolgt in Punkt-Schreibweise und binär. 
+Gespeichert wird diese Umwandlung nicht.
 
