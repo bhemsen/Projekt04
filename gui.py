@@ -24,14 +24,14 @@ class IPMaster9000:
 
 
         root.title("IPMaster9000")
-        # root.geometry('800x600')
+        root.geometry('1200x400')
 
         mainframe = ttk.Frame(root, padding="3 3 12 12")
         # mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
         # mainframe.pack(fill=BOTH, expand=True)
 
         myNotebook = ttk.Notebook(root)
-        myNotebook.pack()
+        myNotebook.pack(fill=BOTH, expand=True)
 
         frame1 = ttk.Frame(myNotebook, width=800, height=600)
         frame2 = ttk.Frame(myNotebook, width=800, height=600)
@@ -80,22 +80,22 @@ class IPMaster9000:
 
         
         # Create A Canvas
-        my_canvas = Canvas(self.f3parent,bd=0, highlightthickness=0, relief='ridge')
-        my_canvas.pack(side=LEFT, fill=BOTH, expand=1)
+        my_canvas2 = Canvas(self.f3parent,bd=0, highlightthickness=0, relief='ridge')
+        my_canvas2.pack(side=LEFT, fill=BOTH, expand=1)
 
         # Add A Scrollbar To The Canvas
-        my_scrollbar = ttk.Scrollbar(self.f3parent, orient=VERTICAL, command=my_canvas.yview)
-        my_scrollbar.pack(side=RIGHT, fill=Y)
+        my_scrollbar2 = ttk.Scrollbar(self.f3parent, orient=VERTICAL, command=my_canvas2.yview)
+        my_scrollbar2.pack(side=RIGHT, fill=Y)
 
         # Configure The Canvas
-        my_canvas.configure(yscrollcommand=my_scrollbar.set)
-        my_canvas.bind('<Configure>', lambda e: my_canvas.configure(scrollregion = my_canvas.bbox("all")))
+        my_canvas2.configure(yscrollcommand=my_scrollbar2.set)
+        my_canvas2.bind('<Configure>', lambda e: my_canvas2.configure(scrollregion = my_canvas2.bbox("all")))
 
         # Create ANOTHER Frame INSIDE the Canvas
-        self.f3 = Frame(my_canvas)
+        self.f3 = Frame(my_canvas2)
 
         # Add that New frame To a Window In The Canvas
-        my_canvas.create_window((0,0), window=self.f3, anchor="nw")
+        my_canvas2.create_window((0,0), window=self.f3, anchor="nw")
 
 
         self.horizontalPane.add(self.f1)

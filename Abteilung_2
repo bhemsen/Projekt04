@@ -1,0 +1,9 @@
+#
+# IP-Adresszuordung für das Netz 2
+#
+# IP-Adresse     PC
+
+10.0.0.8    Netzadresse
+10.0.0.15   Broadcastadresse
+255.255.255.248    Subnetsmaske
+
