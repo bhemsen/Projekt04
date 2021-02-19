@@ -4,6 +4,8 @@ Entwickelt wurde mit der Version 3.9.0
 Das "Frontend" ist Tkinter gebaut.
 Das Backend mit mit netaddr
 
+--Known Bug: Die Scrollbars der PanedWindows sind erst richtig nutzbar wenn deren Breiten manuell vergrößert werden--
+
 Der Projektfortschritt lässt sich im Trello-Board(https://trello.com/b/6uTUuHsF/projekt04) und über die Commits in Github nachvollziehen.
 Es wurde versucht, den Code selbsterklärend zu schreiben und ggf. mit Kommentaren ergänzt
 
