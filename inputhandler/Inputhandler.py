@@ -23,7 +23,7 @@ class Inputhandler:
             return 28
         if (hostCount <= 30):
             return 27
-        if (hostCount <= 26):
+        if (hostCount <= 62):
             return 26
         if (hostCount <= 126):
             return 25
