@@ -27,6 +27,8 @@ Hier kann einem Netz dann eine Abteilung zu geordnet werden. Durch die Zuordnung
 Die Zuordnung wird in einer Datei im Projektordner gespeichert, die angelegt wird, sobald das Netz einer Abteilung zugeordnet wird. 
 Ist bereits eine Datei für die ausgewählte Abteilung vorhanden, kann entschieden werden, diese zu überschreiben, oder eine andere Datei anzulegen(PopUp).
 
+Bei der Bestätigung der Nettzzuordnung wir düberprüft ob ein PC mehr als 1x eingetragen wurde. Wenn ja, wird der Anwender darauf hingewiesen und das speichern wird verhindert. 
+Die Einträge werden nicht gelöscht und können überprüft werden. Das ist besonders bei großen Subnetzen hilfreich
 Im Code ist bereits eine Datenbankklasse und eine SQL-Datei angelegt. 
 Die benötigten Methoden zur Übermittlung der Daten sind ebenfalls schon implementiert, werden aber noch nicht genutzt
 
